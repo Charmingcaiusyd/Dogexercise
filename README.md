@@ -47,7 +47,3 @@ python manage.py migrate
 - 管理员
   - [x] admin 后台管理系统
     - [x] 种类管理
-=======
-# Dogexercise
-Dogexercise
->>>>>>> 80dae1381c94706cef00f847e3f36ebad8f90ac1
