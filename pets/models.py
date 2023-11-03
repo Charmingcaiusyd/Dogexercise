@@ -1,8 +1,7 @@
 import datetime
 import json
-
+from django.contrib.auth.hashers import make_password, check_password
 from django.db import models
-
 # Create your models here.
 from django.db.models import Sum, F
 from django.utils import timezone
@@ -14,6 +13,7 @@ class User(models.Model):
     email = models.CharField('email', max_length=255)
     age = models.IntegerField('age')
     created_at = models.DateTimeField('create time', default=timezone.now)
+    last_login = models.DateTimeField('last login', null=True, blank=True)
 
     class Meta:
         verbose_name = verbose_name_plural = 'user'
@@ -21,7 +21,7 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
-
+    
     def get_user_info(self):
         """用户信息"""
         return {
@@ -126,6 +126,16 @@ class Seller(models.Model):
     email = models.CharField('email', max_length=255)
     age = models.IntegerField('age')
     created_at = models.DateTimeField('create time', default=timezone.now)
+
+    def save(self, *args, **kwargs):
+            if not self.pk or 'password' in kwargs:  # When a user is created or a password is updated
+                self.password = make_password(self.password)
+            super().save(*args, **kwargs)
+
+    def check_password(self, raw_password):
+        """Verify that the supplied password matches the stored hash password"""
+        return check_password(raw_password, self.password)
+
 
     class Meta:
         verbose_name = verbose_name_plural = 'seller'

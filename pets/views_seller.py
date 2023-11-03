@@ -22,10 +22,12 @@ def seller_register(request):
         email = params.get('email', '')
         age = params.get('age', '')
 
+  
+
         # 校验
         if not all([username, password, confirm_password, email, age]):
             messages.error(request, 'Illegal Params')
-            return redirect('/user/register')
+            return redirect('seller/register')
 
         # 密码
         if password != confirm_password:

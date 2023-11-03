@@ -153,7 +153,7 @@
                         </form>
                     </el-tab-pane>
                     <el-tab-pane label="Seller Registration" name="seller">
-                        <form method="post" enctype="multipart/form-data" action="/user/register/">
+                        <form method="post" enctype="multipart/form-data" action="/seller/register/">
                             {% csrf_token %}
 
                             <div class="register-form-content">
@@ -179,8 +179,7 @@
                                         <div class="form-group">
                                             <label for="confirm_password">Confirm Password <span
                                                     class="required">*</span></label>
-                                            <input id="confirm_password" name="confirm_password"
-                                                   class="form-control"
+                                            <input id="confirm_password" name="confirm_password" class="form-control"
                                                    type="password">
                                         </div>
                                     </div>

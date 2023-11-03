@@ -284,18 +284,27 @@
     }
 
     function initializeOSMMap() {
-        var sydney = [-33.8688, 151.2093]; // Sydney
-
-        var map = L.map('osmMap').setView(sydney, 10);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        L.marker(sydney).addTo(map)
-            .bindPopup('Sydney')
-            .openPopup();
+    // 获取页面中id为"osmMap"的元素
+    var mapContainer = document.getElementById('osmMap');
+    
+    // 如果元素不存在，返回并不执行下面的代码
+    if (!mapContainer) {
+        console.log('Map container element with id "osmMap" not found');
+        return;
     }
+
+    var sydney = [-33.8688, 151.2093]; // Sydney
+    var map = L.map('osmMap').setView(sydney, 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker(sydney).addTo(map)
+        .bindPopup('Sydney')
+        .openPopup();
+    }
+
 
     $(document).ready(function () {
         // init OSMap

@@ -8,36 +8,36 @@ urlpatterns = [
     path('', views.index, name='index'),  # 首页
     path('shop/', views.shop, name='shop'),  # 店铺-列表
     path('services/', views.services, name='services'),  # 服务-列表
-    path('shop_details/<pk>', views.shop_details),  # 店铺-详情
+    path('shop_details/<pk>', views.shop_details,name='shop_details'),  # 店铺-详情
     path('forum/', views.forum, name='forum'),  # 论坛
     path('forum/post_message/', views.post_message, name='post_message'),
     path('community_list/', views.community_list, name='community_list'),  # 社区-列表
     path('community_details/<pk>', views.community_details, name='community_details'),  # 社区-列表
     path('community_send/', views.community_send, name='community_send'),  # 社区-发表
-    path('community_editor_image_upload/', views.community_editor_image_upload),  # 社区-富文本-图片上传
+    path('community_editor_image_upload/', views.community_editor_image_upload,name='community_editor_image_upload'),  # 社区-富文本-图片上传
     path('our_team/', views.our_team, name='our_team'),  # 关于我们
 
-    path('user/register/', views_user.user_register),  # 注册
-    path('user/login/', views_user.login),  # 登录
-    path('user/logout/', views_user.user_logout),  # 注销
+    path('user/register/', views_user.user_register, name='user_register'),  # 注册
+    path('user/login/', views_user.login, name='login'),  # 登录
+    path('user/logout/', views_user.user_logout, name='user_logout'),  # 注销
 
-    path('account/', views_user.account),  # 个人主页
-    path('user_update/', views_user.user_update),  # 账户
-    path('pet_update/', views_user.pet_update),  # 宠物-修改
-    path('pet_add/', views_user.pet_add),  # 宠物-修改
+    path('account/', views_user.account, name='account'),  # 个人主页
+    path('user_update/', views_user.user_update, name='user_update'),  # 账户
+    path('pet_update/', views_user.pet_update, name='pet_update'),  # 宠物-修改
+    path('pet_add/', views_user.pet_add, name='pet_add'),  # 宠物-修改
 
     # 购物车
-    path('cart_add/', views_user.cart_add),  # 购物车-添加
-    path('cart_del_jq/<pk>', views_user.cart_del_jq),  # 购物车-删除
-    path('cart_update_jq/<pk>', views_user.cart_update_jq),  # 购物车-修改
-    path('cart_list/', views_user.cart_list),  # 购物车-列表
-    path('cart_list_jq/', views_user.cart_list_jq),  # 购物车-列表
+    path('cart_add/', views_user.cart_add, name='cart_add'),  # 购物车-添加
+    path('cart_del_jq/<pk>', views_user.cart_del_jq, name='cart_del_jq'),  # 购物车-删除
+    path('cart_update_jq/<pk>', views_user.cart_update_jq, name='cart_update_jq'),  # 购物车-修改
+    path('cart_list/', views_user.cart_list, name='cart_list'),  # 购物车-列表
+    path('cart_list_jq/', views_user.cart_list_jq, name='cart_list_jq'),  # 购物车-列表
 
     # 收货信息
-    path('delivery_add/', views_user.delivery_add),  # 收货信息-添加
-    path('delivery_update/', views_user.delivery_update),  # 地址-修改
+    path('delivery_add/', views_user.delivery_add, name='delivery_add'),  # 收货信息-添加
+    path('delivery_update/', views_user.delivery_update, name='delivery_update'),  # 地址-修改
 
-    path('checkout/', views_user.checkout),  # 结算
+    path('checkout/', views_user.checkout, name='checkout'),  # 结算
     path('order/', views_user.order),  # 订单-列表/下单
     path('order_comment/', views_user.order_comment),  # 订单-评论
 
@@ -47,7 +47,7 @@ urlpatterns = [
 
     # ———— 卖家 ————
     path('seller/', views_seller.seller_index),  # 卖家主页
-    path('seller/register/', views_seller.seller_register),  # 注册
+    path('seller/register/', views_seller.seller_register,name='seller_register'),  # 注册
     path('seller/login/', views_seller.seller_login),  # 登录
     path('seller/seller_account/', views_seller.seller_account),  # 账户
     path('seller_update/', views_seller.seller_update),  # 更新账户

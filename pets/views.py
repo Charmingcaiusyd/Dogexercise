@@ -9,10 +9,8 @@ from django.shortcuts import render, redirect
 from django.utils.formats import date_format
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
-
 from main.settings import MEDIA_URL
 from pets.models import Goods, OrderComment, User, Services, Forum, Community, GoodsCategory
-
 from django.shortcuts import render
 from django.http import JsonResponse
 
@@ -24,7 +22,7 @@ def chatbot_request(request):
     access_token = "SXBUSFSNZIV3QCSBAIFYMG6HR7623HUX"  # 使用Server Access Token
     headers = {
         'Authorization': 'Bearer ' + access_token,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/js on'
     }
 
     response = requests.get(f'https://api.wit.ai/message?v=20201005&q={user_message}', headers=headers)
