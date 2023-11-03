@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> Zongmin/main
 
 ## 迁移
 
@@ -45,4 +49,8 @@ python manage.py migrate
 
 - 管理员
   - [x] admin 后台管理系统
+<<<<<<< HEAD
     - [x] 种类管理
+=======
+    - [x] 种类管理
+>>>>>>> Zongmin/main
